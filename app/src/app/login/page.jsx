@@ -6,12 +6,13 @@ import { useAuth } from '../context/Auth';
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
-    const [, { signInWithEmail }] = useAuth();
+    const [{ user }, { signInWithEmail, signInWithGoogle }] = useAuth();
 
   // Cria a conta de usuário
   const signInAccount = async (e) => {
     e.preventDefault();
-    await signInWithEmail(email, password);
+    // await signInWithEmail(email, password);
+    await signInWithGoogle();
   };
 
   return (

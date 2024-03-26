@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useState, useEffect, useMemo, useContext } from 'react';
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../../../../firebase';
 import { useRouter } from 'next/navigation';
 
