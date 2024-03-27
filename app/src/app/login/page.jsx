@@ -11,8 +11,7 @@ const Login = () => {
   // Cria a conta de usuário
   const signInAccount = async (e) => {
     e.preventDefault();
-    // await signInWithEmail(email, password);
-    await signInWithGoogle();
+    await signInWithEmail(email, password);
   };
 
   return (
@@ -59,6 +58,13 @@ const Login = () => {
                             onClick={signInAccount}                        
                         >  
                         Continuar                           
+                        </button>
+                        <button
+                            className={styles.button}
+                            type="submit"
+                            onClick={signInWithGoogle}                        
+                        >  
+                        Entrar com google                           
                         </button>
                                                                     
                     </form>                 

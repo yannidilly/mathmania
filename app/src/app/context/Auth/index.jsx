@@ -100,9 +100,13 @@ export function AuthContextProvider(props) {
           // ..
       });
   }
+  
+  async function updateAccountInfo(displayName, photoURL) {
+    await updateProfile(user, { displayName, photoURL }).then(() => true).catch(e => console.log(e));
+  }
 
   const state = useMemo(() => ({ user }), [user]);
-  const api = useMemo(() => ({ signOut, signInWithGoogle, signInWithEmail, createAccountWithEmail }), [ signOut, signInWithGoogle, signInWithEmail]);
+  const api = useMemo(() => ({ signOut, signInWithGoogle, signInWithEmail, createAccountWithEmail, updateAccountInfo }), [ signOut, signInWithGoogle, signInWithEmail]);
 
   const context = [state, api];
 
