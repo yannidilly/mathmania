@@ -22,24 +22,24 @@ const Login = () => {
 
     return (
         <main>
-            <section>
+            <section className='bg-gray-200'>
                 <div>
                     <div className='flex flex-col h-screen justify-around'>
                         <div className='flex justify-center items-center'>
                             <Image
                                 src={ LogoImage }
-                                alt='logo Mathmania'
+                                alt='logo MathMania'
                                 height={ 25 }
                             />
                         </div>
-                        <h1 className='uppercase text-center'>Entrar</h1>
-                        <form className={ styles.form }>
-                            <div className={ styles.outerInput }>
-                                <label htmlFor="email" className={ styles.inputLabel }>
+                        <h1 className='uppercase text-center top 0'>Entrar</h1>
+                        <form className="rounded px-8 pt-6 pb-8 mb-4 flex flex-col items-center">
+                            <div className="mb-4">
+                                <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
                                     Email
                                 </label>
                                 <input
-                                    className={ styles.input }
+                                    className="shadow appearance-none border rounded w-full py-2 px-28 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     type="email"
                                     label="Email"
                                     value={ email }
@@ -48,12 +48,12 @@ const Login = () => {
                                 />
                             </div>
 
-                            <div className={ styles.outerInput }>
-                                <label htmlFor="password" className={ styles.inputLabel }>
+                            <div className="mb-4">
+                                <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
                                     Senha
                                 </label>
                                 <input
-                                    className={ styles.input }
+                                    className="shadow appearance-none border rounded w-full py-2 px-28 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     type="password"
                                     label="Senha"
                                     value={ password }
@@ -63,15 +63,17 @@ const Login = () => {
                             </div>
 
                             <button
-                                className={ styles.button }
+                                className="bg-custom-primary text-white font-bold py-2 px-28 focus:outline-none leading-tight focus:shadow-outline mb-4"
                                 type="submit"
                                 disabled={ !password || !email }
                                 onClick={ signInAccountWithEmail }
                             >
-                                Continuar
+                                ENTRAR
                             </button>
+                            
                             <button
-                                className={ styles.button }
+                                
+                                className="bg-white hover:bg-custom-secondary text-custom-secondary font-bold py-2 px-2 focus:outline-none focus:shadow-outline"
                                 type="submit"
                                 onClick={ signInWithGoogle }
                             >
