@@ -9,8 +9,8 @@ export const AuthContext = createContext([]);
 
 export function AuthContextProvider(props) {
 
-   const [user, setUser] = useState(null);
-   const router = useRouter();
+  const [user, setUser] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -30,8 +30,8 @@ export function AuthContextProvider(props) {
         })
       }
     })
-   // declara event listener e seta método pra finalizar a função inicializada quando 
-   // o app sair de tela
+    // declara event listener e seta método pra finalizar a função inicializada quando 
+    // o app sair de tela
     return () => {
       unsubscribe();
     }
@@ -41,22 +41,22 @@ export function AuthContextProvider(props) {
     const provider = new GoogleAuthProvider();
 
     const result = await signInWithPopup(auth, provider);
-      if (result.user) {
-        const { displayName, photoURL, uid, email, accessToken } = result.user;
+    if (result.user) {
+      const { displayName, photoURL, uid, email, accessToken } = result.user;
 
-        if (!displayName || !photoURL ) {
-          console.log('Missing info from google account');
-        }
-        localStorage.setItem('@matemania:token', accessToken);
-        setUser({
-          id: uid,
-          name: displayName,
-          avatar: photoURL,
-          email: email,
-        });
-        localStorage.setItem('@matemania:user', JSON.stringify(user));
-        router.push('/account');
+      if (!displayName || !photoURL) {
+        console.log('Missing info from google account');
       }
+      localStorage.setItem('@matemania:token', accessToken);
+      setUser({
+        id: uid,
+        name: displayName,
+        avatar: photoURL,
+        email: email,
+      });
+      localStorage.setItem('@matemania:user', JSON.stringify(user));
+      router.push('/');
+    }
   }
 
   async function signOut() {
@@ -66,52 +66,52 @@ export function AuthContextProvider(props) {
   async function signInWithEmail(email, password) {
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          localStorage.setItem('@matemania:token', user.accessToken);
-          setUser({
-            id: user.uid,
-            name: user.displayName,
-            avatar: user.photoURL,
-            email: user.email,
-          })
-          localStorage.setItem('@matemania:user', JSON.stringify(user));
-          router.push('/account');
+        // Signed in
+        const user = userCredential.user;
+        localStorage.setItem('@matemania:token', user.accessToken);
+        setUser({
+          id: user.uid,
+          name: user.displayName,
+          avatar: user.photoURL,
+          email: user.email,
+        })
+        localStorage.setItem('@matemania:user', JSON.stringify(user));
+        router.push('/');
       })
       .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-          // ..
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        // ..
       });
   }
 
   async function createAccountWithEmail(email, password) {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
-          signInWithEmail(email, password);
+        const user = userCredential.user;
+        console.log(user);
+        signInWithEmail(email, password);
       })
       .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-          // ..
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        // ..
       });
   }
-  
+
   async function updateAccountInfo(displayName, photoURL) {
     await updateProfile(user, { displayName, photoURL }).then(() => true).catch(e => console.log(e));
   }
 
   const state = useMemo(() => ({ user }), [user]);
-  const api = useMemo(() => ({ signOut, signInWithGoogle, signInWithEmail, createAccountWithEmail, updateAccountInfo }), [ signOut, signInWithGoogle, signInWithEmail]);
+  const api = useMemo(() => ({ signOut, signInWithGoogle, signInWithEmail, createAccountWithEmail, updateAccountInfo }), [signOut, signInWithGoogle, signInWithEmail]);
 
   const context = [state, api];
 
   return (
-    <AuthContext.Provider value={context}>
+    <AuthContext.Provider value={ context }>
       { props.children }
     </AuthContext.Provider>
   )
