@@ -1,8 +1,10 @@
 "use client"; // This is a client component
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../context/Auth';
+import Image from 'next/image';
+import LogoImage from '../../assets/logo-mathmania.png';
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -19,11 +21,18 @@ const Login = () => {
     };
 
     return (
-        <main className={ styles.main }>
-            <section className={ styles.section }>
+        <main>
+            <section>
                 <div>
-                    <div>
-                        <h1> Login </h1>
+                    <div className='flex flex-col h-screen justify-around'>
+                        <div className='flex justify-center items-center'>
+                            <Image
+                                src={ LogoImage }
+                                alt='logo Mathmania'
+                                height={ 25 }
+                            />
+                        </div>
+                        <h1 className='uppercase text-center'>Entrar</h1>
                         <form className={ styles.form }>
                             <div className={ styles.outerInput }>
                                 <label htmlFor="email" className={ styles.inputLabel }>
