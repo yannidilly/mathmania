@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../context/Auth';
 import Image from 'next/image';
 import LogoImage from '../../assets/logo-mathmania.png';
+import LogoGoogle from '../../assets/google.png';
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -22,7 +23,11 @@ const Login = () => {
 
     return (
         <main>
-            <section className='bg-gray-200'>
+            <section
+                className='
+                bg-custom-backgroundGray
+                '
+            >
                 <div>
                     <div className='flex flex-col h-screen justify-around'>
                         <div className='flex justify-center items-center'>
@@ -32,14 +37,56 @@ const Login = () => {
                                 height={ 25 }
                             />
                         </div>
-                        <h1 className='uppercase text-center top 0'>Entrar</h1>
-                        <form className="rounded px-8 pt-6 pb-8 mb-4 flex flex-col items-center">
-                            <div className="mb-4">
-                                <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+                        <h1
+                            className='
+                            uppercase
+                            text-center
+                            top 0
+                            text-custom-secondary 
+                            text-2xl
+                            '
+                        >
+                            Entrar
+                        </h1>
+                        <form
+                            className="
+                            rounded
+                            px-8
+                            pt-6
+                            pb-8
+                            mb-4
+                            flex
+                            flex-col
+                            items-center">
+                            <div
+                                className='
+                                mb-4
+                                '
+                            >
+                                <label
+                                    htmlFor="email"
+                                    className="block 
+                                    text-custom-secondary 
+                                    text-sm
+                                    font-bold mb-2">
                                     Email
                                 </label>
                                 <input
-                                    className="shadow appearance-none border rounded w-full py-2 px-28 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    className="
+                                    shadow 
+                                    appearance-none 
+                                    border 
+                                    rounded 
+                                    w-full 
+                                    py-2 
+                                    px-3
+                                    w-72
+                                    md:w-96
+                                    lg:w-120
+                                    text-custom-secondary  
+                                    leading-tight 
+                                    focus:outline-none 
+                                    focus:shadow-outline"
                                     type="email"
                                     label="Email"
                                     value={ email }
@@ -48,12 +95,34 @@ const Login = () => {
                                 />
                             </div>
 
-                            <div className="mb-4">
-                                <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+                            <div className="
+                                        mb-4"
+                            >
+                                <label
+                                    htmlFor="password"
+                                    className="
+                                    block 
+                                    text-custom-secondary 
+                                    text-sm
+                                    font-bold mb-2">
                                     Senha
                                 </label>
                                 <input
-                                    className="shadow appearance-none border rounded w-full py-2 px-28 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    className="
+                                        shadow 
+                                        appearance-none 
+                                        border-none
+                                        rounded w-full 
+                                        py-2 
+                                        px-3
+                                        w-72
+                                        md:w-96
+                                        lg:w-120
+                                        text-custom-secondary 
+                                        leading-tight 
+                                        focus:outline-none 
+                                        focus:shadow-outline
+                                        mb-4"
                                     type="password"
                                     label="Senha"
                                     value={ password }
@@ -63,21 +132,59 @@ const Login = () => {
                             </div>
 
                             <button
-                                className="bg-custom-primary text-white font-bold py-2 px-28 focus:outline-none leading-tight focus:shadow-outline mb-4"
+                                className="
+                                    bg-custom-primary 
+                                    text-white 
+                                    font-bold 
+                                    py-2 
+                                    px-3
+                                    w-72
+                                    md:w-96
+                                    lg:w-120
+                                    focus:outline-none 
+                                    leading-tight 
+                                    focus:shadow-outline 
+                                    mb-4"
                                 type="submit"
                                 disabled={ !password || !email }
                                 onClick={ signInAccountWithEmail }
                             >
                                 ENTRAR
                             </button>
+                            OU
                             
                             <button
                                 
-                                className="bg-white hover:bg-custom-secondary text-custom-secondary font-bold py-2 px-2 focus:outline-none focus:shadow-outline"
+                                className="
+                                bg-white
+                                hover:bg-custom-secondary
+                                text-custom-secondary 
+                                font-bold 
+                                py-2
+                                px-4
+                                w-72
+                                md:w-96
+                                lg:w-120
+                                focus:outline-none 
+                                focus:shadow-outline 
+                                flex 
+                                items-center
+                                justify-center "
                                 type="submit"
                                 onClick={ signInWithGoogle }
                             >
-                                Entrar com google
+                                <Image
+                                    
+                                    className='
+                                    w-8 
+                                    h-8 
+                                    mr-2
+                                    '
+                                src={ LogoGoogle }
+                                alt='logo Google'
+                                
+                            />
+                                <span>Entrar com Google</span>
                             </button>
 
                         </form>
