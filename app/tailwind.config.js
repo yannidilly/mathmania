@@ -14,7 +14,7 @@ module.exports = {
         custom: {
           'primary': '#99173C',
           'secondary': '#808080',
-          'accent': '',
+          'backgroundGray': '#DFDFDF',
           // Adicione mais cores personalizadas conforme necessário
         },
       },
