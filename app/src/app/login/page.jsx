@@ -96,7 +96,7 @@ const Login = () => {
                             xl:mt-[-24rem]
                             text-sm
                             "
-                        >
+                            >
                             <div
                                 className='
                                 mb-4
@@ -137,9 +137,10 @@ const Login = () => {
                                 />
                             </div>
 
-                            <div className="
-                                        mb-4"
-                            >
+                            <div
+                                className="
+                                mb-4"
+                                >
                                 <label
                                     htmlFor="password"
                                     className="
