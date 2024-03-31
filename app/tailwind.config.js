@@ -22,10 +22,12 @@ module.exports = {
       },
       colors: {
         custom: {
-          'primary': '#99173C',
-          'secondary': '#808080',
-          'backgroundGray': '#DFDFDF',
-          'backgroundWhite': '#FFFFFF',
+          'red': '#99173C',
+          'white': '#FFFFFF',
+          'gray1': '#DFDFDF',
+          'gray2': '#C0C0C0',
+          'gray3': '#A0A0A0',
+          'gray4': '#808080',
           'hoverBtn': '#BB1E4A',
           // Adicione mais cores personalizadas conforme necessário
         },

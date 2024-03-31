@@ -26,7 +26,7 @@ const Login = () => {
         <main className='font-custom'>
             <section
                 className='
-                bg-custom-backgroundGray
+                bg-custom-gray1
                 mt-[-0.5rem]
                 '
                 >
@@ -66,8 +66,7 @@ const Login = () => {
                             uppercase
                             text-center
                             top 0
-                            text-custom-secondary 
-                            text-2xl
+                            text-custom-gray4 
                             mb-8
                             mt-[-2rem]
                             md:mt-[-4rem]
@@ -75,6 +74,7 @@ const Login = () => {
                             lg:text-3xl
                             lg:mb-40
                             text-4xs
+                            lg:text-4xs
                             '
                         >
                             Entrar
@@ -92,7 +92,7 @@ const Login = () => {
                             mt-[-4rem]
                             md-mt-[-8rem]
                             lg:mt-[-20rem]
-                            lg:mb-12
+                            lg:mb-40
                             xl:mt-[-24rem]
                             text-sm
                             "
@@ -105,7 +105,7 @@ const Login = () => {
                                 <label
                                     htmlFor="email"
                                     className="block 
-                                    text-custom-secondary 
+                                    text-custom-gray4 
                                     text-2xs
                                     ">
                                     Email
@@ -123,7 +123,7 @@ const Login = () => {
                                     md:w-96
                                     lg:w-120
                                     xl:w-144
-                                    text-custom-secondary  
+                                    text-custom-gray2
                                     leading-tight 
                                     focus:outline-none 
                                     focus:shadow-outline
@@ -144,7 +144,7 @@ const Login = () => {
                                     htmlFor="password"
                                     className="
                                     block 
-                                    text-custom-secondary 
+                                    text-custom-gray4 
                                     text-2xs
                                     "
                                 >
@@ -162,12 +162,13 @@ const Login = () => {
                                     md:w-96
                                     lg:w-120
                                     xl:w-144
-                                    text-custom-secondary  
+                                    text-custom-red
                                     leading-tight 
                                     focus:outline-none 
                                     focus:shadow-outline
                                     rounded-md
                                     text-sm
+                                    text-custom-gray2
                                         "
                                     type="password"
                                     label="Senha"
@@ -180,7 +181,7 @@ const Login = () => {
                             <button
                                 className='
                                     shadow-lg
-                                    bg-custom-primary
+                                    bg-custom-red
                                     hover:bg-custom-hoverBtn
                                     text-white 
                                     py-3
@@ -204,7 +205,7 @@ const Login = () => {
 
                             <span
                                 className='
-                                text-custom-secondary
+                                text-custom-gray4
                                 text-xs
                                 '
                             >
@@ -216,7 +217,7 @@ const Login = () => {
                                 className="
                                 shadow-lg
                                 bg-white
-                                text-custom-secondary 
+                                text-custom-gray4 
                                 py-3
                                 px-4
                                 w-72
@@ -256,7 +257,7 @@ const Login = () => {
                         <div
                             className='
                             text-center
-                            text-custom-secondary
+                            text-custom-gray4
                             mb-8
                             mt-[-5rem]
                             md:mt-[-8rem]
@@ -264,33 +265,30 @@ const Login = () => {
                             xl:mt-[-16rem]
                             '
                             >
-                            <p className='
-                            md:mt-[-4rem]
-                            lg:mt-[-8rem]
-                            lg:mb-[-12rem]
-                            xl:mt-[-4rem]
-                            text-2xs
-                            mt-4
-                            lg-4
-                            '
-                            >
+                            <p
+                                className='
+                                text-2xs
+                                lg:text-2xs
+                                lg:mt-[-10rem]
+                                mt-6
+                                '
+                                >
                                 Ainda Não Estuda Com a Gente?
                             
                                 <div>
-                                <button
-                                    onClick={() => router.push('/signup')}
-                                    className='
-                                    text-custom-primary
-                                    py-2
-                                    px-2
-                                    mb-4
-                                    text-2Xs
-                                    underline
-                                    '
-                                    >
-                                    <Link href="/signup">
-                                        Criar Conta
-                                    </Link>
+                                    <button
+                                        onClick={() => router.push('/signup')}
+                                        className='
+                                        text-custom-red
+                                        py-2
+                                        px-2
+                                        mb-4
+                                        text-2xs
+                                        '
+                                        >
+                                        <Link href="/signup">
+                                            Criar Conta
+                                        </Link>
                                     </button>
                                 </div>
                             </p>
