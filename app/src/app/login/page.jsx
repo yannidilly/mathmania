@@ -24,281 +24,85 @@ const Login = () => {
 
     return (
         <main className='font-custom'>
-            <section
-                className='
-                bg-custom-gray1
-                mt-[-0.5rem]
-                '
-                >
-                <div>
-                    <div className='
-                        flex
-                        flex-col
-                        h-screen
-                        justify-around
-                        '
-                        >
-                        <div className='
-                            flex
-                            justify-center
-                            items-center
-                            w-full
-                            h-32
-                            md:mt-40
-                            lg:mt-8
-                            lg:mb-8
-                            xl:mt-16
-                            '
-                            >
-                            <Image
-                                className='
-                                    lg:h-8 
-                                    lg:w-auto
-                                    xl:w-auto
-                                    '
-                                src={ LogoImage }
-                                alt='logo MathMania'
-                                height={ 25 }
+            <section className='bg-custom-gray1 mt-[-0.5rem]'>
+                <div className='flex flex-col h-screen justify-around'>
+                    <div className='flex justify-center items-center h-32 mt-8 sm:mt-0 sm:mb-0 md:mt-16 lg:mt-8'>
+                        <Image
+                            className='w-48 sm:w-60 md:w-64 lg:w-64 xl:w-64 mt-12'
+                            src={LogoImage}
+                            alt='logo MathMania'
+                            height={25}
+                        />
+                    </div>
+                    <div className='flex justify-center'>
+                       <h1 className='uppercase text-center text-2xl md:text-2xl lg:text-2xl xl:text-2xl text-custom-gray4 mb-48 mt-12'>
+                        Entrar
+                    </h1> 
+                    </div>
+                    
+                  
+                    <form className="rounded flex flex-col items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-4 pb-8 mb-8 mt-[-4rem] sm:mt-[-6rem] lg:mt-[-16rem] mb-24">
+                        <div className='mb-4 w-full md:w-96 lg:w-120 xl:w-144'>
+                            <label htmlFor="email" className="block text-custom-gray4 text-xs mb-1">Email</label>
+                            <input
+                                className="shadow-lg appearance-none border font-custom py-3 px-3 w-full rounded text-custom-gray2 leading-tight focus:outline-none focus:shadow-outline text-sm"
+                                type="email"
+                                label="Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Digite seu email"
                             />
                         </div>
-                        <h1
-                            className='
-                            uppercase
-                            text-center
-                            top 0
-                            text-custom-gray4 
-                            mb-8
-                            mt-[-2rem]
-                            md:mt-[-4rem]
-                            lg:mt-[-16rem]
-                            lg:text-3xl
-                            lg:mb-40
-                            text-4xs
-                            lg:text-4xs
-                            '
-                        >
-                            Entrar
-                        </h1>
-                        <form
-                            className="
-                            rounded
-                            px-8
-                            pt-6
-                            pb-8
-                            mb-4
-                            flex
-                            flex-col
-                            items-center
-                            mt-[-4rem]
-                            md-mt-[-8rem]
-                            lg:mt-[-20rem]
-                            lg:mb-40
-                            xl:mt-[-24rem]
-                            text-sm
-                            "
-                            >
-                            <div
-                                className='
-                                mb-4
-                                '
-                                >
-                                <label
-                                    htmlFor="email"
-                                    className="block 
-                                    text-custom-gray4 
-                                    text-2xs
-                                    ">
-                                    Email
-                                </label>
-                                <input
-                                    className="
-                                    shadow-lg
-                                    appearance-none 
-                                    border
-                                    font-custom
-                                    py-3
-                                    px-3
-                                    w-72
-                                    rounded
-                                    md:w-96
-                                    lg:w-120
-                                    xl:w-144
-                                    text-custom-gray2
-                                    leading-tight 
-                                    focus:outline-none 
-                                    focus:shadow-outline
-                                    text-sm
-                                    "
-                                    type="email"
-                                    label="Email"
-                                    value={ email }
-                                    onChange={ (e) => setEmail(e.target.value) }
-                                    placeholder="Digite seu email"
-                                />
-                            </div>
-
-                            <div
-                                className="
-                                mb-4"
-                                >
-                                <label
-                                    htmlFor="password"
-                                    className="
-                                    block 
-                                    text-custom-gray4 
-                                    text-2xs
-                                    "
-                                >
-                                    Senha
-                                </label>
-                                <input
-                                    className="
-                                    shadow-lg
-                                    appearance-none 
-                                    border 
-                                    rounded 
-                                    py-3
-                                    px-3
-                                    w-72
-                                    md:w-96
-                                    lg:w-120
-                                    xl:w-144
-                                    text-custom-red
-                                    leading-tight 
-                                    focus:outline-none 
-                                    focus:shadow-outline
-                                    rounded-md
-                                    text-sm
-                                    text-custom-gray2
-                                        "
-                                    type="password"
-                                    label="Senha"
-                                    value={ password }
-                                    onChange={ (e) => setPassword(e.target.value) }
-                                    placeholder="Digite sua senha"
-                                />
-                            </div>
-
-                            <button
-                                className='
-                                    shadow-lg
-                                    bg-custom-red
-                                    hover:bg-custom-hoverBtn
-                                    text-white 
-                                    py-3
-                                    px-5
-                                    w-72
-                                    md:w-96
-                                    lg:w-120
-                                    xl:w-144
-                                    focus:outline-none
-                                    mb-4
-                                    mt-6
-                                    rounded-md
-                                    text-sm
-                                    '
-                                type="submit"
-                                disabled={ !password || !email }
-                                onClick={ signInAccountWithEmail }
-                            >
-                                ENTRAR
-                            </button>
-
-                            <span
-                                className='
-                                text-custom-gray4
-                                text-xs
-                                '
-                            >
-                                ou
-                            </span>
-                            
-                            <button
-                                
-                                className="
-                                shadow-lg
-                                bg-white
-                                text-custom-gray4 
-                                py-3
-                                px-4
-                                w-72
-                                mb-4
-                                h-10
-                                md:w-96
-                                lg:w-120
-                                xl:w-144
-                                focus:outline-none 
-                                focus:shadow-outline 
-                                flex 
-                                items-center
-                                justify-center
-                                rounded-md
-                                mt-4
-                                text-sm
-                                "
-                                type="submit"
-                                onClick={ signInWithGoogle }
-                                >
-                                <Image
-                                className='
-                                w-8 
-                                h-8 
-                                mr-2
-                                '
-                                src={ LogoGoogle }
-                                alt='logo Google'
-                                
-                                />
-                                <span>Entrar com o Google</span>
-                            </button>
-
-                        </form>
-                        
-
-                        <div
-                            className='
-                            text-center
-                            text-custom-gray4
-                            mb-8
-                            mt-[-5rem]
-                            md:mt-[-8rem]
-                            lg:mt-[-12rem]
-                            xl:mt-[-16rem]
-                            '
-                            >
-                            <p
-                                className='
-                                text-2xs
-                                lg:text-2xs
-                                lg:mt-[-10rem]
-                                mt-6
-                                '
-                                >
-                                Ainda Não Estuda Com a Gente?
-                            
-                                <div>
-                                    <button
-                                        onClick={() => router.push('/signup')}
-                                        className='
-                                        text-custom-red
-                                        py-2
-                                        px-2
-                                        mb-4
-                                        text-2xs
-                                        '
-                                        >
-                                        <Link href="/signup">
-                                            Criar Conta
-                                        </Link>
-                                    </button>
-                                </div>
-                            </p>
+                        <div className='mb-4 w-full md:w-96 lg:w-120 xl:w-144'>
+                            <label htmlFor="password" className="block text-custom-gray4 text-xs mb-1">Senha</label>
+                            <input
+                                className="shadow-lg appearance-none border rounded py-3 px-3 w-full text-custom-red leading-tight focus:outline-none focus:shadow-outline text-sm mb-4"
+                                type="password"
+                                label="Senha"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="Digite sua senha"
+                            />
                         </div>
-                        
+                        <button
+                            className="shadow-lg bg-custom-red hover:bg-custom-hoverBtn text-white py-3 px-2 w-full md:w-96 lg:w-96 xl:w-120 focus:outline-none mb-4 rounded-md text-sm"
+                            type="submit"
+                            disabled={!password || !email}
+                            onClick={signInAccountWithEmail}
+                        >
+                            ENTRAR
+                        </button>
+                        <span className="text-custom-gray4 text-xs mb-4">ou</span>
+                        <button
+                            className="shadow-lg bg-white text-custom-gray4 py-3 px-5 w-full md:w-96 lg:w-96 xl:w-120 focus:outline-none flex items-center justify-center rounded-md text-sm"
+                            type="submit"
+                            onClick={signInWithGoogle}
+                        >
+                            <Image
+                                className='w-8 h-8 mr-2'
+                                src={LogoGoogle}
+                                alt='logo Google'
+                            />
+                            <span>Entrar com o Google</span>
+                        </button>
+                    </form>
+                    <div className='text-center text-custom-gray4'>
+                        <div className='text-xs mt-8 mb-4'>
+                            Ainda Não Estuda Com a Gente?
+                            <div>
+                                <button
+                                    onClick={() => router.push('/signup')}
+                                    className='text-custom-red py-2 px-2 mb-4 mt-4 text-xs'
+                                >
+                                    <Link href="/signup">Criar Conta</Link>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
     )
 };
+
 export default Login;
