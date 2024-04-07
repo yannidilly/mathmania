@@ -1,17 +1,18 @@
 "use client"; // This is a client component
-import React, { useState } from 'react';
-import styles from './styles.module.css';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../context/Auth';
 import Image from 'next/image';
 import LogoImage from '../../assets/logo-mathmania.png';
 import LogoGoogle from '../../assets/google.png';
 import Link from 'next/link';
+import Loading from '../loading/page';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [{ user }, { signInWithEmail, signInWithGoogle }] = useAuth();
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
   // quando usuário está logado (localStorage) já envia direto para a outra página '/'
@@ -22,7 +23,20 @@ const Login = () => {
     await signInWithEmail(email, password);
   };
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(false); 
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
+    <>
     <main className="bg-custom-gray1 font-custom w-full h-screen">
       <section className="">
         <div className="flex flex-col h-screen justify-around">
@@ -72,7 +86,7 @@ const Login = () => {
             >
               ENTRAR
             </button>
-            <span className="text-custom-gray4 text-xs mb-4">ou</span>
+            <span className="uppercase text-custom-gray4 text-xs mb-4">ou</span>
             <button
               className="shadow-lg bg-white text-custom-gray4 py-3 px-5 w-full md:w-96 lg:w-96 xl:w-120 focus:outline-none flex items-center justify-center rounded-md text-sm"
               type="submit"
@@ -85,13 +99,13 @@ const Login = () => {
               />
               <span>Entrar com o Google</span>
             </button>
-            <div className="text-center text-custom-gray4 mt-4">
+            <div className="uppercase text-center text-custom-gray4 mt-4">
               <div className="text-xs mt-0 mb-4">
                 Ainda Não Estuda Com a Gente?
                 <div>
                   <button
                     onClick={() => router.push('/signup')}
-                    className="text-custom-red py-2 px-2 mb-4 mt-4 text-xs"
+                    className="uppercase text-custom-red py-2 px-2 mb-4 mt-4 text-xs"
                   >
                     <Link href="/signup">Criar Conta</Link>
                   </button>
@@ -101,7 +115,8 @@ const Login = () => {
           </form>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 };
 
