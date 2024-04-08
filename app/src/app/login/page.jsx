@@ -1,6 +1,5 @@
 "use client"; // This is a client component
 import React, { useState } from 'react';
-import styles from './styles.module.css';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../context/Auth';
 import Image from 'next/image';
@@ -23,9 +22,9 @@ const Login = () => {
   };
 
   return (
-    <main className="bg-custom-gray1 font-custom w-full h-screen">
-      <section className="">
-        <div className="flex flex-col h-screen justify-around">
+    <main>
+      <section className="bg-custom-gray1 font-custom w-full h-screen">
+        <div className="bg-custom-gray1 flex flex-col justify-around">
           <form className="rounded flex flex-col items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-4 pb-8 sm:mt-8 lg:mt-24">
             <div className="mb-8 w-full md:w-96 lg:w-120 xl:w-144">
               <div className="flex justify-center items-center h-32 mt-8 sm:mt-0 sm:mb-0 md:mt-16 lg:mt-8 mb-8">
