@@ -19,9 +19,9 @@ const SignUp = () => {
   };
 
   return (
-    <main className="font-custom bg-custom-gray1  w-full h-screen">        
-        <section className="flex flex-col h-screen justify-around">
-            <div>             
+    <main className="font-custom">        
+        <section className="flex flex-col justify-around h-screen bg-custom-gray1">
+            <div className="flex flex-col justify-around bg-custom-gray1">             
                 <form className="mb-40 rounded flex flex-col items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-4 pb-8 sm:mt-8 lg:mt-24">                                                                                            
                     <div className="flex justify-center items-center h-32 mt-8 sm:mt-0 sm:mb-0 md:mt-16 lg:mt-8 mb-8">
                           <Image
