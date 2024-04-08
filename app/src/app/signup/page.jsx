@@ -9,6 +9,7 @@ import LogoImage from '../../assets/logo-mathmania.png';
 const SignUp = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
 
     const [{ user }, { createAccountWithEmail }] = useAuth();
  
@@ -36,15 +37,15 @@ const SignUp = () => {
                     </h1>
                           
                     <div className="mb-4 w-full md:w-96 lg:w-120 xl:w-144">
-                        <label htmlFor="email" className="block text-custom-gray4 text-xs mb-1">
+                        <label htmlFor="nome" className="block text-custom-gray4 text-xs mb-1">
                             Nome
                         </label>
                             <input
-                                className="shadow-lg appearance-none border rounded py-3 px-3 w-full leading-tight focus:outline-none focus:shadow-outline text-sm mb-4"
-                                type="email"
-                                label="Email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}  
+                                className="text-custom-gray4 shadow-lg appearance-none border rounded py-3 px-3 w-full leading-tight focus:outline-none focus:shadow-outline text-sm mb-4"
+                                type="text"
+                                label="Nome"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}  
                                 required                                    
                                 placeholder="Digite seu nome"                                
                             />
@@ -54,7 +55,7 @@ const SignUp = () => {
                             Email
                         </label>
                         <input
-                                className="shadow-lg appearance-none border font-custom py-3 px-3 w-full rounded text-custom-gray2 leading-tight focus:outline-none focus:shadow-outline text-sm"
+                                className="text-custom-gray4 shadow-lg appearance-none border font-custom py-3 px-3 w-full rounded leading-tight focus:outline-none focus:shadow-outline text-sm"
                                 type="email"
                                 label="Email"
                                 value={email}
@@ -69,7 +70,7 @@ const SignUp = () => {
                             Senha
                         </label>
                         <input
-                                className="shadow-lg appearance-none border font-custom py-3 px-3 w-full rounded text-custom-gray2 leading-tight focus:outline-none focus:shadow-outline text-sm"
+                                className="text-custom-gray4 shadow-lg appearance-none border font-custom py-3 px-3 w-full rounded leading-tight focus:outline-none focus:shadow-outline text-sm"
                                 type="password"
                                 label="Senha"
                                 value={password}
