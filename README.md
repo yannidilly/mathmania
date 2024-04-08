@@ -5,6 +5,21 @@
 - [Figma](https://www.figma.com/file/ukzVhGRwCIFgPDOCDg1O49/Prot%C3%B3tipo-MathMania?type=design&node-id=0-1&mode=design&t=zmaJWGOxGNcU5pUh-0)
 - [Trello](https://trello.com/invite/b/7MZqNR0A/ATTI668e541db53bc013180161742f7454d0604B2E78/matemania)
 
+## Como Inicializar o Projeto
+1. Entre na pasta matemania/app
+```
+cd app
+```
+2. Crie o arquivo .env.local (o conteúdo do arquivo está disponível no grupo do WhatsApp)
+3. Instale as dependências
+```
+npm install
+```
+4. Inicie o projeto
+```
+npm run dev
+```
+
 ## Padrão de Nomenclatura de Branchs
 
 ```
