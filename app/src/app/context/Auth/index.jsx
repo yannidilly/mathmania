@@ -55,7 +55,7 @@ export function AuthContextProvider(props) {
         email: email,
       });
       localStorage.setItem('@matemania:user', JSON.stringify(user));
-      router.push('/account');
+      router.push('/');
     }
   }
 
