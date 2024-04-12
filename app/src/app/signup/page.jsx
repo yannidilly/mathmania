@@ -1,6 +1,5 @@
 "use client"; // This is a client component
 import React, { useState } from 'react';
-import styles from './styles.module.css';
 import Link from 'next/link';
 import { useAuth } from '../context/Auth';
 import Image from 'next/image';
@@ -9,7 +8,6 @@ import LogoImage from '../../assets/logo-mathmania.png';
 const SignUp = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
 
     const [{ user }, { createAccountWithEmail }] = useAuth();
 
@@ -35,21 +33,6 @@ const SignUp = () => {
                         <h1 className="uppercase text-text-center text-1xl sm:text-xl md:text-2xl md:mt-12 md:mb-12 lg:text-2xl xl:text-2xl text-custom-gray4 mb-8">
                             Nova Conta
                         </h1>
-
-                        <div className="mb-4 w-full md:w-96 lg:w-120 xl:w-144">
-                            <label htmlFor="nome" className="block text-custom-gray4 text-xs mb-1">
-                                Nome
-                            </label>
-                            <input
-                                className="text-custom-gray4 shadow-lg appearance-none border rounded py-3 px-3 w-full leading-tight focus:outline-none focus:shadow-outline text-sm mb-4"
-                                type="text"
-                                label="Nome"
-                                value={ name }
-                                onChange={ (e) => setName(e.target.value) }
-                                required
-                                placeholder="Digite seu nome"
-                            />
-                        </div>
                         <div className="mb-8 w-full md:w-96 lg:w-120 xl:w-144">
                             <label htmlFor="email" className="block text-custom-gray4 text-xs mb-1">
                                 Email
