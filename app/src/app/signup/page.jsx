@@ -84,8 +84,7 @@ const SignUp = () => {
                             className="uppercase shadow-lg bg-custom-red hover:bg-custom-hoverBtn text-white py-3 px-2 w-full mt-4 md:w-96 md:mt-6 lg:w-96 xl:w-120 focus:outline-none mb-4 rounded-md text-sm"
                             type="submit"
                             disabled={ !password || !email }
-                            //  onClick={ createAccount }
-                            onClick={ () => router.push('/home') }
+                            onClick={ createAccount }
                         >
                             Criar Conta
                         </button>
