@@ -23,16 +23,16 @@ const Login = () => {
 
   return (
     <main>
-      <section className="bg-custom-gray1 font-custom w-full h-screen">
+      <section className="bg-custom-gray1 font-custom h-screen">
         <div className="bg-custom-gray1 flex flex-col justify-around">
           <form className="rounded flex flex-col items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-4 pb-8 sm:mt-8 lg:mt-24">
-            <div className="mb-8 w-full md:w-96 lg:w-120 xl:w-144">
-              <div className="flex justify-center items-center h-32 mt-8 sm:mt-0 sm:mb-0 md:mt-16 lg:mt-8 mb-8">
+            <div className="w-full md:w-96 lg:w-120 xl:w-144">
+              <div className="flex justify-center items-center h-10 mt-8 sm:mt-0 sm:mb-0 md:mt-16 lg:mt-8 mb-8">
                 <Image
-                  className="flex items-center w-48 sm:w-60 md:w-64 lg:w-64 xl:w-64 mt-12"
-                  src={LogoImage}
+                  className="flex items-center"
+                  src={ LogoImage }
                   alt="logo MathMania"
-                  height={25}
+                  height={ 25 }
                 />
               </div>
               <h1 className="uppercase text-center text-1xl sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl text-custom-gray4 mb-8">
@@ -45,8 +45,8 @@ const Login = () => {
                 className="shadow-lg appearance-none border font-custom py-3 px-3 w-full rounded text-custom-gray2 leading-tight focus:outline-none focus:shadow-outline text-sm"
                 type="email"
                 label="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={ email }
+                onChange={ (e) => setEmail(e.target.value) }
                 placeholder="Digite seu email"
               />
             </div>
@@ -58,16 +58,16 @@ const Login = () => {
                 className="shadow-lg appearance-none border rounded py-3 px-3 w-full text-custom-red leading-tight focus:outline-none focus:shadow-outline text-sm mb-4"
                 type="password"
                 label="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={ password }
+                onChange={ (e) => setPassword(e.target.value) }
                 placeholder="Digite sua senha"
               />
             </div>
             <button
               className="shadow-lg bg-custom-red hover:bg-custom-hoverBtn text-white py-3 px-2 w-full md:w-96 lg:w-96 xl:w-120 focus:outline-none mb-4 rounded-md text-sm"
               type="submit"
-              disabled={!password || !email}
-              onClick={signInAccountWithEmail}
+              disabled={ !password || !email }
+              onClick={ signInAccountWithEmail }
             >
               ENTRAR
             </button>
@@ -75,11 +75,11 @@ const Login = () => {
             <button
               className="shadow-lg bg-white text-custom-gray4 py-3 px-5 w-full md:w-96 lg:w-96 xl:w-120 focus:outline-none flex items-center justify-center rounded-md text-sm"
               type="submit"
-              onClick={signInWithGoogle}
+              onClick={ signInWithGoogle }
             >
               <Image
                 className="w-8 h-8 mr-2"
-                src={LogoGoogle}
+                src={ LogoGoogle }
                 alt="logo Google"
               />
               <span>Entrar com o Google</span>
@@ -89,7 +89,7 @@ const Login = () => {
                 Ainda Não Estuda Com a Gente?
                 <div>
                   <button
-                    onClick={() => router.push('/signup')}
+                    onClick={ () => router.push('/signup') }
                     className="text-custom-red py-2 px-2 mb-4 mt-4 text-xs"
                   >
                     <Link href="/signup">Criar Conta</Link>
