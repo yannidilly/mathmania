@@ -31,6 +31,7 @@ npm run dev
     <ul>
       <li>feat-US2.02-concept-research</li>
       <li>feat-US6.01-share-progress</li>
+      <li>test-US1.02-login</li>
       <li>fix-US7.02-content-not-added</li>
     </ul>
 </details>
