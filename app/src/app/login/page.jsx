@@ -1,6 +1,5 @@
 "use client"; // This is a client component
 import React, { useState } from 'react';
-import styles from './styles.module.css';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../context/Auth';
 import Image from 'next/image';
