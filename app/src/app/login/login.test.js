@@ -20,6 +20,16 @@ describe('Login Component', () => {
     expect(loginButton).toBeEnabled();
   });
 
-  // Você pode adicionar mais testes para cobrir outros cenários, como o envio do formulário, 
-  // a chamada da função de login com e-mail/senha, a chamada da função de login com o Google, etc.
+  it('should disable login button when email or password are empty', () => {
+    render(<Login />);
+    const emailInput = screen.getByLabelText('Email');
+    const passwordInput = screen.getByLabelText('Senha');
+    const loginButton = screen.getByText('ENTRAR');
+
+    fireEvent.change(emailInput, { target: { value: '' } });
+    fireEvent.change(passwordInput, { target: { value: 'password123' } });
+
+    expect(loginButton).toBeDisabled();
+    
+  });
 });
