@@ -9,8 +9,8 @@ const Topics = () => {
     <main className="bg-custom-gray1 w-full h-screen font-custom">
       <div>
         <Header />
-        <CardSubject title="Novas matérias" subject="Geometria" />
-        <CardSubject title="Continuar estudos" subject="Equações" />
+        <CardSubject title="Novas Matérias" subject="Geometria" />
+        <CardSubject title="Continuar Estudos" subject="Equações" />
         <CardSubject title="Revisão" subject="Trigonometria" />
         <Button />
       </div>
