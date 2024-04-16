@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import LogoImage from '../../assets/logo-mathmania-white.png';
 import Image from 'next/image';
