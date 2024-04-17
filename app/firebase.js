@@ -22,17 +22,32 @@ export const auth = getAuth(app);
 
 const db = getFirestore(app);
 
-/*this function is used to get all documents from a collection in firestore */
-/* const getSubjects = async () => {
+// this function is used to get all documents from a collection in firestore
+
+const getSubjects = async () => {
   const querySnapshot = await getDocs(collection(db, "subjects"));
   querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
+    console.log(`${doc.id} => ${doc.data().name}`);
   });
 };
 
 getSubjects();
-*/
 
+/* this function is used to create a document in subjects collection in firestore */
+
+// const createSubjectDocument = async () => {
+//   try {
+//     const docRef = await addDoc(collection(db, "subjects"), {
+//       name: "Geometria",
+//       createdAt: new Date().toISOString(),
+//     });
+//     console.log("Document written with ID: ", docRef.id);
+//   } catch (error) {
+//     console.error("Error adding document: ", error);
+//   }
+// };
+
+// createSubjectDocument();
 
 /* this function is used to create a collection in firestore */
 
