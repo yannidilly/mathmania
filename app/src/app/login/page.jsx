@@ -1,31 +1,48 @@
 "use client"; // This is a client component
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../context/Auth';
 import Image from 'next/image';
 import LogoImage from '../../assets/logo-mathmania.png';
 import LogoGoogle from '../../assets/google.png';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [{ user }, { signInWithEmail, signInWithGoogle }] = useAuth();
   const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState("");
 
   // quando usuário está logado (localStorage) já envia direto para a outra página '/'
   // precisamos de criar uma função para validar o token antes de reencaminhar o usuário
 
-  const signInAccountWithEmail = async (e) => {
-    e.preventDefault();
-    await signInWithEmail(email, password);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const signInAccountWithEmail = async ({email, password}) => {
+    const signInResponse = await signInWithEmail(email, password);
+    
+    setErrorMessage(signInResponse);
   };
+
+  useEffect(() => {
+
+    if (errors.email?.message) {
+      setErrorMessage(errors.email.message);
+    } else if(errors.password?.message) {
+      setErrorMessage(errors.pasasword.message);
+    }
+  }, [errors])
 
   return (
     <main>
       <section className="bg-custom-gray1 font-custom h-screen">
         <div className="bg-custom-gray1 flex flex-col justify-around">
-          <form className="rounded flex flex-col items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-4 pb-8 sm:mt-8 lg:mt-24">
+          <form action="" onSubmit={handleSubmit(signInAccountWithEmail)} className="rounded flex flex-col items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-4 pb-8 sm:mt-8 lg:mt-24">
             <div className="w-full md:w-96 lg:w-120 xl:w-144">
               <div className="flex justify-center items-center h-10 mt-8 sm:mt-0 sm:mb-0 md:mt-16 lg:mt-8 mb-8">
                 <Image
@@ -35,39 +52,42 @@ const Login = () => {
                   height={ 25 }
                 />
               </div>
+
               <h1 className="uppercase text-center text-1xl sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl text-custom-gray4 mb-8">
                 Entrar
               </h1>
+
               <label htmlFor="email" className="block text-custom-gray4 text-xs mb-1">
                 Email
               </label>
+              {errors.email?.message && <span className="text-red-600 text-xs">{errors.email.message}*</span>}
               <input
                 className="shadow-lg appearance-none border font-custom py-3 px-3 w-full rounded text-custom-gray2 leading-tight focus:outline-none focus:shadow-outline text-sm"
                 type="email"
                 label="Email"
-                value={ email }
-                onChange={ (e) => setEmail(e.target.value) }
+                {...register('email', {required: "Campo Obrigatório"})}
                 placeholder="Digite seu email"
+                required
               />
             </div>
             <div className="mb-8 w-full md:w-96 lg:w-120 xl:w-144">
               <label htmlFor="password" className="block text-custom-gray4 text-xs mb-1">
                 Senha
               </label>
+              {errors.password?.message && <span className="text-red-600 text-xs">{errors.password.message}*</span>}
               <input
                 className="shadow-lg appearance-none border rounded py-3 px-3 w-full text-custom-red leading-tight focus:outline-none focus:shadow-outline text-sm mb-4"
                 type="password"
                 label="Senha"
-                value={ password }
-                onChange={ (e) => setPassword(e.target.value) }
+                {...register('password', { required: "Campo Obrigatório"})}
                 placeholder="Digite sua senha"
+                required
               />
             </div>
             <button
-              className="shadow-lg bg-custom-red hover:bg-custom-hoverBtn text-white py-3 px-2 w-full md:w-96 lg:w-96 xl:w-120 focus:outline-none mb-4 rounded-md text-sm"
+              className="disabled:bg-gray-500 disabled:hover:bg-gray-700 shadow-lg bg-custom-red hover:bg-custom-hoverBtn text-white py-3 px-2 w-full md:w-96 lg:w-96 xl:w-120 focus:outline-none mb-4 rounded-md text-sm"
               type="submit"
-              disabled={ !password || !email }
-              onClick={ signInAccountWithEmail }
+              disabled={ watch("email") === "" && watch("password") ===  "" } 
             >
               ENTRAR
             </button>
@@ -90,7 +110,7 @@ const Login = () => {
                 <div>
                   <button
                     onClick={ () => router.push('/signup') }
-                    className="text-custom-red py-2 px-2 mb-4 mt-4 text-xs"
+                    className={"text-custom-red py-2 px-2 mb-4 mt-4 text-xs"}
                   >
                     <Link href="/signup">Criar Conta</Link>
                   </button>
