@@ -10,7 +10,8 @@ const Account = () => {
     <main className={styles.main}>        
         <section>
               
-          <h1> Minha conta </h1>                                                                   <h2 onClick={updateAccountInfo}>Email: {user?.email}</h2>
+          <h1> Minha conta </h1>                                                                   
+          <h2 onClick={updateAccountInfo}>Email: {user?.email}</h2>
           <h2>{user?.name}</h2>
         </section>
     </main>
