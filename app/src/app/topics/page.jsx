@@ -24,7 +24,7 @@ const Topics = () => {
       <div className="container mx-auto px-4 py-8">
         <TitleSubject title="Novas Matérias" />
 
-        <Slider {...settings} className="mb-8">
+        <Slider {...settings}>
           <CardSubject subject="Geometria" />
           <CardSubject subject="Trigonometria" />
           <CardSubject subject="Estatística" />
@@ -35,7 +35,7 @@ const Topics = () => {
       <div className="container mx-auto px-4 py-8">
         <TitleSubject title="Continuar Estudos" />
 
-        <Slider {...settings} className="mb-8">
+        <Slider {...settings}>
           <CardSubject subject="Raiz Quadrada" />
           <CardSubject subject="Conjuntos" />
           <CardSubject subject="Equações" />
@@ -46,10 +46,10 @@ const Topics = () => {
       <div className="container mx-auto px-4 py-8">
         <TitleSubject title="Revisão" />
 
-        <Slider {...settings} className="mb-8">
+        <Slider {...settings}>
           <CardSubject subject="Análise Real" />
           <CardSubject subject="Álgebra Linear" />
-          <CardSubject subject="Cálculo Diferencial" />
+          <CardSubject subject="Cálculo" />
           <CardSubject subject="Cálculo Integral" />
         </Slider>
       </div>
