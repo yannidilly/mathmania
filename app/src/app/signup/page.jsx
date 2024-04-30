@@ -4,12 +4,14 @@ import Link from 'next/link';
 import { useAuth } from '../context/Auth';
 import Image from 'next/image';
 import LogoImage from '../../assets/logo-mathmania.png';
+import LogoGoogle from '../../assets/google.png';
 
 const SignUp = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
 
     const [{ user }, { createAccountWithEmail }] = useAuth();
+    const [, { createAccountWithGoogle }] = useAuth();
 
     // Cria a conta de usuário
     const createAccount = async (e) => {
@@ -71,6 +73,19 @@ const SignUp = () => {
                         >
                             Criar Conta
                         </button>
+                        <span className="text-custom-gray4 text-xs mb-4">ou</span>
+            <button
+              className="shadow-lg bg-white text-custom-gray4 py-3 px-5 w-full md:w-96 lg:w-96 xl:w-120 focus:outline-none flex items-center justify-center rounded-md text-sm"
+              type="submit"
+              onClick={createAccountWithGoogle}
+            >
+              <Image
+                className="w-8 h-8 mr-2"
+                src={LogoGoogle}
+                alt="logo Google"
+              />
+              <span>Criar conta com o Google</span>
+            </button>
 
                         <div className='uppercase text-custom-gray4 py-2 px-2 mb-4 mt-4 text-xs'>
                             Já Estuda Com a Gente?{ ' ' }
