@@ -101,12 +101,34 @@ export function AuthContextProvider(props) {
       });
   }
 
+  // creteAccountWithGoogle (leo)
+  async function createAccountWithGoogle() {
+    const provider = new GoogleAuthProvider();
+
+    const result = await signInWithPopup(auth, provider);
+    if (result.user) {
+      const { displayName, photoURL, uid, email } = result.user;
+
+      if (!displayName || !photoURL) {
+        console.log('Missing info from google account');
+      }
+
+      setUser({
+        id: uid,
+        name: displayName,
+        avatar: photoURL,
+        email,
+      });
+      router.push('/');
+    }
+  }
+
   async function updateAccountInfo(displayName, photoURL) {
     await updateProfile(user, { displayName, photoURL }).then(() => true).catch(e => console.log(e));
   }
 
   const state = useMemo(() => ({ user }), [user]);
-  const api = useMemo(() => ({ signOut, signInWithGoogle, signInWithEmail, createAccountWithEmail, updateAccountInfo }), [signOut, signInWithGoogle, signInWithEmail]);
+  const api = useMemo(() => ({ signOut, signInWithGoogle, signInWithEmail, createAccountWithEmail,createAccountWithGoogle, updateAccountInfo }), [signOut, signInWithGoogle, signInWithEmail]);
 
   const context = [state, api];
 
