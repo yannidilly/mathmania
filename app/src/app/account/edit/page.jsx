@@ -1,14 +1,13 @@
 // this is an edit account page.
 // it is a form that allows the user to edit their account information.
 
+import { ProfileHeader } from '@/components/ProfileHeader';
 import React from 'react';
 
 const EditAccount = () => {
   return (
     <main>
-      <header>
-        Here is header!
-      </header>
+      <ProfileHeader />
       <section className="bg-custom-gray1 font-custom h-screen ">
         <form action="" className="flex flex-col items-center px-4 md:px-8 lg:px-12 xl:px-16 pt-4 pb-8 sm:mt-8 lg:mt-24 space-y-20">
           <h1 className="text-custom-gray4">EDITAR INFORMAÇÕES</h1>
