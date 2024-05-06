@@ -22,7 +22,7 @@ const Header = () => {
       </Link>
       
       {user && (
-        <Link href="/editInfo" className='flex items-center'>
+        <Link href="/account" className='flex items-center'>
           <div className="flex items-center">
             
             <Image
