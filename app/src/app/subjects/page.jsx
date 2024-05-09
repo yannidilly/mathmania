@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Header from "./Header";
+import Header from "../header/page";
 import CardSubject from "./CardSubject";
 import Button from "./Button";
 import Slider from "react-slick";
