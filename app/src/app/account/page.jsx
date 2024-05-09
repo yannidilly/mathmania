@@ -2,12 +2,14 @@
 import React from 'react';
 import styles from './styles.module.css';
 import { useAuth } from '../context/Auth';
+import Header from '../header/page';
 
 const Account = () => {
   const [{ user }, { updateAccountInfo }] = useAuth();
   // console.log('email: ', user);
   return (
-    <main className={styles.main}>        
+    <main className={styles.main}>
+        <Header />
         <section>
               
           <h1> Minha conta </h1>                                                                   <h2 onClick={updateAccountInfo}>Email: {user?.email}</h2>

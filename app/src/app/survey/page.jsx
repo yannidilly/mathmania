@@ -1,21 +1,13 @@
 
-"use client"; // This is a client component
+"use client";
 import React from 'react';
-import styles from './styles.module.css';
-
-// .main {
-//   display: flex;
-//   align-items: flex-start;
-//   padding-top: 30px;
-//   justify-content: center;
-//   font-family: 'Roboto', sans-serif;
-//   height: 100vh;
-// }
+import Header from '../header/page';
 
 const Survey = () => {
 
   return (
-    <main className="flex items-start pt-8 justify-center h-screen">        
+    <main className="flex items-start pt-8 justify-center h-screen">
+        <Header />
         <section>
               
           <h1> Pesquisas </h1>                                                                          
