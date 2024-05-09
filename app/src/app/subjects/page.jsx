@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import Header from "../header/page";
+import Button from '../button/page';
 import CardSubject from "./CardSubject";
-import Button from "./Button";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
