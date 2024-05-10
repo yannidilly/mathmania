@@ -6,13 +6,14 @@ import Header from '../header/page';
 const Stats = () => {
 
   return (
-    <main className={styles.main}>
-        <Header />
-        <section>
-              
-          <h1> Minhas estatísticas e conquistas </h1>                                                                          
-        </section>
-    </main>
+    <>
+      <Header />
+      <main className={styles.main}>
+      <section>
+
+        <h1> Minhas estatísticas e conquistas </h1>
+      </section>
+    </main></>
   )
 };
 export default Stats;
