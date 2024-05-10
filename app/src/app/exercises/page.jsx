@@ -79,8 +79,6 @@ const Exercises = () => {
 
           <button
             className="mt-4 uppercase bg-custom-red text-white py-2 px-4 rounded text-xs"
-            type='submit'
-            title="Responder"
             onClick={() => console.log('VOCÊ RESPONDEU:  ', selectedOption)}
           >
             Responder
