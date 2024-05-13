@@ -14,9 +14,9 @@ const Login = () => {
   const router = useRouter();
 
   // quando usuário está logado (localStorage) já envia direto para a outra página '/'
-   if (user) {
-    router.push('/topics');
-  }
+  //  if (user) {
+  //   router.push('/topics');
+  // }
   // precisamos de criar uma função para validar o token antes de reencaminhar o usuário
  
 
