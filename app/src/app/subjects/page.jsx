@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import TitleSubject from './titleSubject';
 import { collection, addDoc } from "firebase/firestore";
 
-const Topics = () => {
+const Subjects = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -54,9 +54,9 @@ const Topics = () => {
           <CardSubject subject="Cálculo Integral" />
         </Slider>
       </div>
-          <Button />  
+          <Button title='FAZER TREINAMENTO'/>  
     </main>
   );
 };
 
-export default Topics;
+export default Subjects;
