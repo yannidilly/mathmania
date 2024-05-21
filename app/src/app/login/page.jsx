@@ -50,7 +50,7 @@ const Login = () => {
                 placeholder="Digite seu email"
               />
             </div>
-            <div className="mb-8 w-full md:w-96 lg:w-120 xl:w-144">
+            <div className="mb-8 mt-6 w-full md:w-96 lg:w-120 xl:w-144">
               <label htmlFor="password" className="block text-custom-gray4 text-xs mb-1">
                 Senha
               </label>
@@ -74,7 +74,7 @@ const Login = () => {
             <span className="text-custom-gray4 text-xs mb-4">ou</span>
             <button
               className="shadow-lg bg-white text-custom-gray4 py-3 px-5 w-full md:w-96 lg:w-96 xl:w-120 focus:outline-none flex items-center justify-center rounded-md text-sm"
-              type="submit"
+              type="button"
               onClick={ signInWithGoogle }
             >
               <Image
