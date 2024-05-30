@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <div className="bg-custom-red h-20 flex justify-between">
-      <Link href="/login" className='flex items-center'>
+      <Link href="/topics" className='flex items-center'>
         <div>
           <Image
             className="p-6 w-40"
