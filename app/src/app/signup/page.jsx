@@ -74,7 +74,7 @@ const SignUp = () => {
 
                         <div className='uppercase text-custom-gray4 py-2 px-2 mb-4 mt-4 text-xs'>
                             Já Estuda Com a Gente?{ ' ' }
-                            <button className='uppercase underline text-custom-red text-center mt-4'>
+                            <button className='underline text-custom-red text-center mt-4'>
                                 <Link href="/login" >
                                     Faça Login
                                 </Link>
