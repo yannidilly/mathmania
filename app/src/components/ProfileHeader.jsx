@@ -4,15 +4,13 @@ import UserIcon from "../assets/do-utilizador.png";
 import { useAuth } from "../app/context/Auth";
 import { useRef } from 'react';
 import { FaRegArrowAltCircleLeft } from 'react-icons/fa';
-import { useRouter } from 'next/router';
 import Camera from '../assets/camera.png';
-import firebase from 'firebase/app';  // Certifique-se de que o Firebase esteja configurado e importado corretamente
-import 'firebase/storage';  // Importação do módulo de storage do Firebase
+import firebase from 'firebase/app';
+import 'firebase/storage';
 
 export const ProfileHeader = () => {
     const { user, updateAccountInfo } = useAuth();
     const fileInputRef = useRef(null);
-    const router = useRouter();
 
     const handleFileChange = async (e) => {
         const file = e.target.files[0];
@@ -30,17 +28,12 @@ export const ProfileHeader = () => {
         fileInputRef.current.click();
     };
 
-    // const handleBackClick = () => {
-    //     router.push('/account');
-    // };
-
     return (
         <header className="bg-custom-red h-36 w-full flex flex-col items-center relative">
             <div className="absolute left-2 top-4">
-                <FaRegArrowAltCircleLeft className="text-white cursor-pointer mt-12 ml-6 sm:ml-8 sm:mt-12 md:ml-6 md:mt-12 lg:ml-8 lg:mt-12 xl:ml-8 xl:mt-12"
-                    size={22}
-                    // onClick={handleBackClick}
-                />
+                <a href="/account">
+                <FaRegArrowAltCircleLeft className="text-white cursor-pointer mt-12 ml-6 sm:ml-8 sm:mt-12 md:ml-6 md:mt-12 lg:ml-8 lg:mt-12 xl:ml-8 xl:mt-12" size={22} />
+                </a>
             </div>
             <div className="flex flex-col items-center">
                 <p className="text-white text-xs mt-12 sm:text-sm sm:mt-16 md:text-base md:mt-14 lg:text-lg lg:mt-12 xl:text-xl xl:mt-12">Olá, {user ? user.name : 'Usuário'}!</p>
@@ -71,3 +64,5 @@ export const ProfileHeader = () => {
         </header>
     );
 }
+
+export default ProfileHeader;
