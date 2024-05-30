@@ -1,7 +1,17 @@
-import { getSubjects } from "../../../database/firebase"
+import { createSubjectDocument, getSubjects } from "../../../database/firebase"
 
-const subjects = getSubjects();
+export default async function GET(_req,res) {
+    const subjects = await getSubjects();
 
-export default function handler(req,res) {
-    res.status(200).json({ subjects })
+    res.status(200).json({ subjects });
+}
+
+export default async function POST(req, res) {
+    const formData = await req.formData();
+
+    const name = formData.get("name");
+
+    const message = await createSubjectDocument(name);
+
+    res.status(200).json({ message })
 }

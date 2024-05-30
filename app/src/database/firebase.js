@@ -30,19 +30,19 @@ export const getSubjects = async () => {
     console.log(`${doc.id} => ${doc.data().name}`);
   });
 };
-/* this function is used to create a document in subjects collection in firestore */
 
-// const createSubjectDocument = async () => {
-//   try {
-//     const docRef = await addDoc(collection(db, "subjects"), {
-//       name: "Geometria",
-//       createdAt: new Date().toISOString(),
-//     });
-//     console.log("Document written with ID: ", docRef.id);
-//   } catch (error) {
-//     console.error("Error adding document: ", error);
-//   }
-// };
+/* this function is used to create a document in subjects collection in firestore */
+export const createSubjectDocument = async (name) => {
+  try {
+    const docRef = await addDoc(collection(db, "subjects"), {
+      name,
+      createdAt: new Date().toISOString(),
+    });
+    return { message: "Document written with ID: ", docId: docRef.id }
+  } catch (error) {
+    return { message: "Error adding document: ", error }
+  }
+};
 
 // createSubjectDocument();
 
