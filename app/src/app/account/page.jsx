@@ -6,6 +6,7 @@ import ProfileImage from '../../assets/adicionar-usuario.png';
 import Image from 'next/image';
 import Button from '../button/page';
 import EditIcon from '../../assets/editar.png';
+import Link from 'next/link';
 
 const Account = () => {
   const [{ user }, { updateAccountInfo }] = useAuth();
@@ -17,7 +18,7 @@ const Account = () => {
     <>
       <Header />
       <main className="bg-custom-gray1 sm:mb-8 flex justify-center items-center h-screen w-auto shadow">
-        <section className="bg-white rounded-lg p-8 shadow-md">
+        <section className="bg-white rounded-lg p-8 y-8 shadow-md">
           {isLoading ? (
             <div className="flex flex-col align-middle items-center">
               <Image src={ProfileImage} alt="User profile" width={60} height={60} />
@@ -51,19 +52,23 @@ const Account = () => {
                     Enem
                   </span>
               </div>
-           
-              <div className="flex align-middle flex-col">
+
+                <div className="flex align-middle flex-col">
+                  <Link href="/upgrade">
                 <Button
                   title='UPGRADE'
                   onClick={updateAccountInfo}
-                />
+                    />
+                  </Link>
               </div>
 
                 <div className="flex align-middle flex-col">
+                  <Link href="/stats">
                   <Button
                   title='ESTATÍSTICAS'
                   onClick={updateAccountInfo}
-                    />
+                  />
+                  </Link>
                 </div> 
               
             </>
