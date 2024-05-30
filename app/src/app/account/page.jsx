@@ -9,29 +9,40 @@ import Button from '../button/page';
 const Account = () => {
   const [{ user }, { updateAccountInfo }] = useAuth();
 
+  // Verifica se os dados do usuário estão carregados
+  const isLoading = !user;
+
   return (
     <>
       <Header />
-      <main className="flex justify-center items-center h-screen">
+      <main className="bg-custom-gray1 sm:mb-8 flex justify-center items-center h-screen w-auto shadow">
         <section className="bg-white rounded-lg p-8 shadow-md">
-          <h1 className="text-center text-2xl font-bold mb-4">Minha conta</h1>
-          <h2 className="text-center text-lg mb-4">Informações da conta</h2>
-          <div className="flex flex-col items-center">
-            <Image
-              className="rounded-full"
-              src={user?.avatar || ProfileImage}
-              alt="Foto de perfil"
-              width={100}
-              height={100}
-              priority
-            />
-            <h2 className="mt-2">{user?.name}</h2>
-            <h2 className="mt-2">{user?.email}</h2>
-            <Button
-              title='Editar Informações'
-              onClick={updateAccountInfo}
-            />
-          </div>
+          {isLoading ? (
+            <div className="flex flex-col align-middle items-center">
+              <Image src={ProfileImage} alt="User profile" width={60} height={60} />
+           
+              <span className="mb-4 text-left text-1xl text-custom-gray3 ">Carregando usuário logado...</span>
+            </div>
+          ) : (
+            <>
+              <div className="flex flex-col align-middle">
+                <h1 className="text-left text-1xl text-custom-gray4 font-bold">{user?.name}</h1>
+                <span className="mb-4 text-left text-1xl text-custom-gray3">{user?.email}</span>
+              </div>
+              <div className="flex flex-col align-middle">   
+                <h1 className="mt-4 text-left text-1xl text-custom-gray4 font-bold">Perfil</h1>
+                <span className="text-left text-custom-gray3 text-1xl">Editar Informações</span>
+              </div>
+              <div className="flex flex-col align-middle">   
+                <h1 className="mt-4 text-left text-1xl text-custom-gray4 font-bold">Trilha de Aprendizado</h1>
+                <span className="text-left text-custom-gray3 text-1xl">ENEM</span>
+              </div>
+              <Button
+                title='Editar Informações'
+                onClick={updateAccountInfo}
+              />
+            </>
+          )}
         </section>
       </main>
     </>
