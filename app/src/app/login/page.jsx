@@ -39,7 +39,7 @@ const Login = () => {
                   height={ 25 }
                 />
               </div>
-              <h1 className="uppercase text-center text-1xl sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl text-custom-gray4 mb-8">
+              <h1 className="uppercase text-center text-1xl mt-4 sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl text-custom-gray4 mb-8">
                 Entrar
               </h1>
               <label htmlFor="email" className="block text-custom-gray4 text-xs mb-1">
@@ -54,7 +54,7 @@ const Login = () => {
                 placeholder="Digite seu email"
               />
             </div>
-            <div className="mb-8 w-full md:w-96 lg:w-120 xl:w-144">
+            <div className="mt-6 mb-8 w-full md:w-96 lg:w-120 xl:w-144">
               <label htmlFor="password" className="block text-custom-gray4 text-xs mb-1">
                 Senha
               </label>
