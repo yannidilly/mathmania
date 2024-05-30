@@ -5,6 +5,7 @@ import Header from '../header/page';
 import ProfileImage from '../../assets/adicionar-usuario.png';
 import Image from 'next/image';
 import Button from '../button/page';
+import EditIcon from '../../assets/editar.png';
 
 const Account = () => {
   const [{ user }, { updateAccountInfo }] = useAuth();
@@ -27,20 +28,44 @@ const Account = () => {
             <>
               <div className="flex flex-col align-middle">
                 <h1 className="text-left text-1xl text-custom-gray4 font-bold">{user?.name}</h1>
-                <span className="mb-4 text-left text-1xl text-custom-gray3">{user?.email}</span>
+                <span className="text-left text-1xl text-custom-gray3">{user?.email}</span>
               </div>
               <div className="flex flex-col align-middle">   
-                <h1 className="mt-4 text-left text-1xl text-custom-gray4 font-bold">Perfil</h1>
-                <span className="text-left text-custom-gray3 text-1xl">Editar Informações</span>
-              </div>
-              <div className="flex flex-col align-middle">   
+                <h1 className="mt-6 text-left text-1xl text-custom-gray4 font-bold">Perfil</h1>
+                  <span className="flex text-left text-custom-gray3 text-1xl">
+                    <Image
+                      src={EditIcon} alt="Edit icon" width={20} height={20}
+                      className='mr-2'
+                    />
+                    Editar Informações
+                  </span>
+                </div>
+                
+                <div className="flex flex-col align-middle">   
                 <h1 className="mt-4 text-left text-1xl text-custom-gray4 font-bold">Trilha de Aprendizado</h1>
-                <span className="text-left text-custom-gray3 text-1xl">ENEM</span>
+                  <span className="flex text-left text-custom-gray3 text-1xl">
+                    <Image
+                      src={EditIcon} alt="Edit icon" width={20} height={20}
+                      className='mr-2'
+                    />
+                    Enem
+                  </span>
               </div>
-              <Button
-                title='Editar Informações'
-                onClick={updateAccountInfo}
-              />
+           
+              <div className="flex align-middle flex-col">
+                <Button
+                  title='UPGRADE'
+                  onClick={updateAccountInfo}
+                />
+              </div>
+
+                <div className="flex align-middle flex-col">
+                  <Button
+                  title='ESTATÍSTICAS'
+                  onClick={updateAccountInfo}
+                    />
+                </div> 
+              
             </>
           )}
         </section>
