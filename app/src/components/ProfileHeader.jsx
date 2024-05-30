@@ -9,7 +9,7 @@ import firebase from 'firebase/app';
 import 'firebase/storage';
 
 export const ProfileHeader = () => {
-    const { user, updateAccountInfo } = useAuth();
+    const [{ user, updateAccountInfo }] = useAuth();
     const fileInputRef = useRef(null);
 
     const handleFileChange = async (e) => {
