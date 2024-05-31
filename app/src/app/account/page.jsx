@@ -17,7 +17,7 @@ const Account = () => {
   return (
     <>
       <Header />
-      <main className="bg-custom-gray1 sm:mb-8 flex justify-center items-center h-screen w-auto shadow">
+      <main className="bg-custom-gray1 flex justify-center items-center h-screen xl:h-screen">
         <section className="bg-white rounded-lg p-8 y-8 shadow-md">
           {isLoading ? (
             <div className="flex flex-col align-middle items-center">
