@@ -6,6 +6,7 @@ import ProfileImage from '../../assets/adicionar-usuario.png';
 import Image from 'next/image';
 import Button from '../button/page';
 import EditIcon from '../../assets/editar.png';
+import ArrowLeft from '../../assets/seta-esquerda.png';
 import Link from 'next/link';
 
 const Account = () => {
@@ -18,6 +19,7 @@ const Account = () => {
     <>
       <Header />
       <main className="bg-custom-gray1 flex justify-center items-center h-screen xl:h-screen">
+    
         <section className="bg-white rounded-lg p-8 y-8 shadow-md">
           {isLoading ? (
             <div className="flex flex-col align-middle items-center">
@@ -26,7 +28,7 @@ const Account = () => {
               <span className="mb-4 text-left text-1xl text-custom-gray3 ">Carregando usuário logado...</span>
             </div>
           ) : (
-            <>
+              <>
               <div className="flex flex-col align-middle">
                 <h1 className="text-left text-1xl text-custom-gray4 font-bold">{user?.name}</h1>
                 <span className="text-left text-1xl text-custom-gray3">{user?.email}</span>
@@ -70,7 +72,14 @@ const Account = () => {
                   />
                   </Link>
                 </div> 
-              
+                <div className="flex items-center">
+                  <Link href="/subjects">
+                  <Image
+                      src={ArrowLeft} alt="Edit icon" width={20} height={20}
+                    className='mb-4 mt-10 cursor-pointer'  
+                    />
+                </Link>
+              </div> 
             </>
           )}
         </section>
