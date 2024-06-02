@@ -1,19 +1,91 @@
-"use client"; // This is a client component
+"use client";
 import React from 'react';
-import styles from './styles.module.css';
 import { useAuth } from '../context/Auth';
+import Header from '../header/page';
+import ProfileImage from '../../assets/adicionar-usuario.png';
+import Image from 'next/image';
+import Button from '../button/page';
+import EditIcon from '../../assets/editar.png';
+import ArrowLeft from '../../assets/seta-esquerda.png';
+import Link from 'next/link';
 
 const Account = () => {
   const [{ user }, { updateAccountInfo }] = useAuth();
-  // console.log('email: ', user);
+
+  // Verifica se os dados do usuário estão carregados
+  const isLoading = !user;
+
   return (
-    <main className={styles.main}>        
-        <section>
-              
-          <h1> Minha conta </h1>                                                                   <h2 onClick={updateAccountInfo}>Email: {user?.email}</h2>
-          <h2>{user?.name}</h2>
+    <>
+      <Header />
+      <main className="bg-custom-gray1 flex justify-center items-center h-screen xl:h-screen">
+    
+        <section className="bg-white rounded-lg p-8 y-8 shadow-md">
+          {isLoading ? (
+            <div className="flex flex-col align-middle items-center">
+              <Image src={ProfileImage} alt="User profile" width={60} height={60} />
+           
+              <span className="mb-4 text-left text-1xl text-custom-gray3 ">Carregando usuário logado...</span>
+            </div>
+          ) : (
+              <>
+              <div className="flex flex-col align-middle">
+                <h1 className="text-left text-1xl text-custom-gray4 font-bold">{user?.name}</h1>
+                <span className="text-left text-1xl text-custom-gray3">{user?.email}</span>
+              </div>
+              <div className="flex flex-col align-middle">   
+                <h1 className="mt-6 text-left text-1xl text-custom-gray4 font-bold">Perfil</h1>
+                  <span className="flex text-left text-custom-gray3 text-1xl">
+                    <Image
+                      src={EditIcon} alt="Edit icon" width={20} height={20}
+                      className='mr-2'
+                    />
+                    Editar Informações
+                  </span>
+                </div>
+                
+                <div className="flex flex-col align-middle">   
+                <h1 className="mt-4 text-left text-1xl text-custom-gray4 font-bold">Trilha de Aprendizado</h1>
+                  <span className="flex text-left text-custom-gray3 text-1xl">
+                    <Image
+                      src={EditIcon} alt="Edit icon" width={20} height={20}
+                      className='mr-2'
+                    />
+                    Enem
+                  </span>
+              </div>
+
+                <div className="flex align-middle flex-col">
+                  <Link href="/upgrade">
+                <Button
+                  title='UPGRADE'
+                  onClick={updateAccountInfo}
+                    />
+                  </Link>
+              </div>
+
+                <div className="flex align-middle flex-col">
+                  <Link href="/stats">
+                  <Button
+                  title='ESTATÍSTICAS'
+                  onClick={updateAccountInfo}
+                  />
+                  </Link>
+                </div> 
+                <div className="flex items-center">
+                  <Link href="/subjects">
+                  <Image
+                      src={ArrowLeft} alt="Edit icon" width={20} height={20}
+                    className='mb-4 mt-10 cursor-pointer'  
+                    />
+                </Link>
+              </div> 
+            </>
+          )}
         </section>
-    </main>
-  )
+      </main>
+    </>
+  );
 };
+
 export default Account;
