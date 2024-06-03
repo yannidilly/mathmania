@@ -17,24 +17,14 @@ const Exercises = () => {
     <>
       <Header />
       <main className="bg-custom-gray1 w-full min-h-screen font-custom">
-        <section className="flex flex-col items-center justify-center h-full">
-        <p className="text-lg text-justify mt-20">
-            
-            (Enem 2020) Uma torneira está gotejando água <br />
-            em um balde com capacidade de 18 litros.<br />
-            No instante atual, o balde se encontra com ocupação<br />
-            de 50% de sua capacidade.
-            A cada segundo caem 5<br />
-            gotas de água da torneira,e uma gota é formada, em média,<br />
-            por 5×10-2 ml
-            de água.
-            Quanto tempo, em hora, será necessário<br />
-            para encher completamente o balde, <br /> partindo do
-            instante atual?<br/>
+        <section className="flex flex-col items-center justify-center h-full p-4">
+          <p className="text-lg text-justify mt-20 sm:text-base sm:mt-10">
+            (Enem 2020) Uma torneira está gotejando água em um balde com capacidade de 18 litros. No instante atual, o balde se encontra com ocupação de 50% de sua capacidade.
+            A cada segundo caem 5 gotas de água da torneira, e uma gota é formada, em média, por 5×10⁻² ml de água. Quanto tempo, em horas, será necessário para encher completamente o balde, partindo do instante atual?
           </p>
           
           {/* Opções de marcação de múltipla escolha */}
-          <div className="mt-4">
+          <div className="mt-8">
             <label className="block mb-2">
               <input 
                 type="radio" 
@@ -78,7 +68,7 @@ const Exercises = () => {
           </div>
 
           <button
-            className="mt-4 uppercase bg-custom-red text-white py-2 px-4 rounded text-xs"
+            className="mt-8 uppercase bg-custom-red text-white py-2 px-4 rounded text-xs"
             onClick={() => console.log('VOCÊ RESPONDEU:  ', selectedOption)}
           >
             Responder
