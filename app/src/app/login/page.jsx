@@ -14,9 +14,9 @@ const Login = () => {
   const router = useRouter();
 
   // quando usuário está logado (localStorage) já envia direto para a outra página '/'
-   if (user) {
-    router.push('/topics');
-  }
+  //  if (user) {
+  //   router.push('/subjects');
+  // }
   // precisamos de criar uma função para validar o token antes de reencaminhar o usuário
  
 
@@ -55,7 +55,7 @@ const Login = () => {
               />
             </div>
             <div className="mb-8 w-full md:w-96 lg:w-120 xl:w-144">
-              <label htmlFor="password" className="block text-custom-gray4 text-xs mb-1">
+              <label htmlFor="password" className="block text-custom-gray4 text-xs mb-1 mt-4">
                 Senha
               </label>
               <input
