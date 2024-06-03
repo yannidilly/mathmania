@@ -32,10 +32,11 @@ export const getSubjects = async () => {
 };
 
 /* this function is used to create a document in subjects collection in firestore */
-export const createSubjectDocument = async (name) => {
+export const createSubjectDocument = async (name, description) => {
   try {
     const docRef = await addDoc(collection(db, "subjects"), {
       name,
+      description,
       createdAt: new Date().toISOString(),
     });
     return { message: "Document written with ID: ", docId: docRef.id }
