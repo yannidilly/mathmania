@@ -119,7 +119,7 @@ export function AuthContextProvider(props) {
         avatar: photoURL,
         email,
       });
-      router.push('/');
+      router.push('/subjects');
     }
   }
 
