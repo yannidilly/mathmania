@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,7 +14,12 @@ const Subjects = () => {
   const [{ getSubjects }] = useSubjects();
 
   useEffect(() => {
-    async () => console.log(getSubjects)();
+    const a = async () => {
+      const b = await getSubjects();
+      console.log(b);
+    };
+
+    a();
   }, []);
 
   const settings = {

@@ -1,6 +1,7 @@
 import { Inter, Roboto } from "next/font/google";
-import "./globals.css";
 import { AuthContextProvider } from "./context/Auth";
+import { SubjectContextProvider } from "./context/Subject";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={classesFonts}>
         <AuthContextProvider>
-          {children}
+          <SubjectContextProvider>
+            {children}
+          </SubjectContextProvider>
         </AuthContextProvider>
       </body>
     </html>

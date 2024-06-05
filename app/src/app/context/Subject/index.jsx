@@ -1,5 +1,8 @@
-import { db } from "@/database/firebase";
-import { createContext, useContext } from "react";
+"use client";
+
+import { collection, getDocs } from "firebase/firestore";
+import { createContext, useContext, useMemo } from "react";
+import { db } from "../../../database/firebase";
 
 export const SubjectContext = createContext([]);
 
@@ -7,9 +10,7 @@ export function SubjectContextProvider(props) {
 
   async function getSubjects() {
     const querySnapshot = await getDocs(collection(db, "subjects"));
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data().name}`);
-    });
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, name: doc.data().name}));
   }
 
   async function createSubjectDocument(name) {
