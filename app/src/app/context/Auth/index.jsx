@@ -1,5 +1,5 @@
 'use client';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, updateEmail, updatePassword, updateProfile } from "firebase/auth";
 import { useRouter } from 'next/navigation';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { auth } from '../../../../firebase';
@@ -101,8 +101,15 @@ export function AuthContextProvider(props) {
       });
   }
 
-  const updateAccountInfo = async (displayName, photoURL) => (
-    updateProfile(auth.currentUser, { displayName, photoURL }).then(() => ({ message: "successfull" })).catch(e => ({ e })));
+  const updateAccountInfo = async ({ displayName, photoURL, email, password }) => {
+    const profileResponse = await updateProfile(auth.currentUser, { displayName, photoURL }).then(() => ({ message: "successfull profile change" })).catch(e => ({ e }));
+    const emailResponse = await updateEmail(auth.currentUser, email).then(() => ({ message: "email changed" })).catch(e => ({ e }));
+    const confirmEmail = await sendEmailVerification(auth.currentUser)
+      .then(() => ({ message: "verification email send" }));
+    const passwordResponse = await updatePassword(auth.currentUser, password).then(() => ({ message: "password changed" })).catch((e) => ({ e }));
+
+    return { profileResponse, emailResponse, passwordResponse, confirmEmail };
+  };
 
   const state = useMemo(() => ({ user }), [user]);
   const api = useMemo(() => ({ signOut, signInWithGoogle, signInWithEmail, createAccountWithEmail, updateAccountInfo }), [signOut, signInWithGoogle, signInWithEmail]);
@@ -110,8 +117,8 @@ export function AuthContextProvider(props) {
   const context = [state, api];
 
   return (
-    <AuthContext.Provider value={ context }>
-      { props.children }
+    <AuthContext.Provider value={context}>
+      {props.children}
     </AuthContext.Provider>
   )
 }
