@@ -91,6 +91,7 @@ export function AuthContextProvider(props) {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        sendEmailVerification(auth.currentUser).then(() => console.log("confirmation email send"));
         signInWithEmail(email, password);
       })
       .catch((error) => {
