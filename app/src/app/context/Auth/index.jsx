@@ -1,8 +1,8 @@
 'use client';
-import { createContext, useState, useEffect, useMemo, useContext } from 'react';
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from '../../../../firebase';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import { useRouter } from 'next/navigation';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { auth } from '../../../../firebase';
 
 
 export const AuthContext = createContext([]);
@@ -101,9 +101,8 @@ export function AuthContextProvider(props) {
       });
   }
 
-  async function updateAccountInfo(displayName, photoURL) {
-    await updateProfile(user, { displayName, photoURL }).then(() => true).catch(e => console.log(e));
-  }
+  const updateAccountInfo = async (displayName, photoURL) => (
+    updateProfile(auth.currentUser, { displayName, photoURL }).then(() => ({ message: "successfull" })).catch(e => ({ e })));
 
   const state = useMemo(() => ({ user }), [user]);
   const api = useMemo(() => ({ signOut, signInWithGoogle, signInWithEmail, createAccountWithEmail, updateAccountInfo }), [signOut, signInWithGoogle, signInWithEmail]);
@@ -116,6 +115,7 @@ export function AuthContextProvider(props) {
     </AuthContext.Provider>
   )
 }
+
 export function useAuth() {
   const value = useContext(AuthContext);
 
