@@ -1,11 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
@@ -18,46 +14,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-
 const db = getFirestore(app);
+const auth = getAuth(app);
 
-// this function is used to get all documents from a collection in firestore
+export { app, auth, db };
 
-export const getSubjects = async () => {
-  const querySnapshot = await getDocs(collection(db, "subjects"));
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data().name}`);
-  });
-};
-
-/* this function is used to create a document in subjects collection in firestore */
-export const createSubjectDocument = async (name) => {
-  try {
-    const docRef = await addDoc(collection(db, "subjects"), {
-      name,
-      createdAt: new Date().toISOString(),
-    });
-    return { message: "Document written with ID: ", docId: docRef.id }
-  } catch (error) {
-    return { message: "Error adding document: ", error }
-  }
-};
-
-// createSubjectDocument();
-
-/* this function is used to create a collection in firestore */
-
-/* const createSubjectCollection = async () => {
-    try {
-      const docRef = await addDoc(collection(db, "subjects"), {
-        name: "Math",
-        updatedAt: new Date(),
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (error) {
-      console.error("Error adding document: ", error);
-    }
-}
-
-createSubjectCollection(); */

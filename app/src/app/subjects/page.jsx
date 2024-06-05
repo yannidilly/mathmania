@@ -1,15 +1,21 @@
 "use client";
-import React from "react";
-import Header from "../header/page";
-import Button from '../button/page';
-import CardSubject from "./CardSubject";
+import { useEffect } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import Button from '../button/page';
+import { useSubjects } from "../context/Subject";
+import Header from "../header/page";
+import CardSubject from "./CardSubject";
 import TitleSubject from './titleSubject';
-import { collection, addDoc } from "firebase/firestore";
 
 const Subjects = () => {
+  const [{ getSubjects }] = useSubjects();
+
+  useEffect(() => {
+    async () => console.log(getSubjects)();
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
