@@ -1,0 +1,35 @@
+services:
+  server:
+    build:
+      context: ./apps/server/
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3333'
+    environment:
+      - ADDRESS=0.0.0.0
+      - PORT=3000
+    depends_on:
+      - database
+
+  web:
+    build:
+      context: ./apps/web/
+      dockerfile: Dockerfile
+    ports:
+      - '3002:3000'
+    depends_on:
+      - server
+
+  database:
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: yourdbname
+      POSTGRES_USER: youruser
+      POSTGRES_PASSWORD: yourpassword
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
