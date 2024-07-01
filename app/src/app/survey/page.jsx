@@ -8,10 +8,10 @@ const Survey = () => {
 
   return (
     <>
-      
+
       <main className="bg-custom-gray1 flex items-start pt-8 justify-center h-screen font-custom">
-      <section className='bg-custom-gray1 flex justify-center md:mt-16 lg:mt-20 xl:mt-20'>
-          
+        <section className='bg-custom-gray1 flex justify-center md:mt-16 lg:mt-20 xl:mt-20'>
+
           <form className="bg-custom-gray1 rounded px-8 pt-6 pb-8 mb-4 mt-14">
             <div className="mb-4">
               <label className="uppercase block text-custom-gray4 text-sm font-bold mb-2" htmlFor="name">
@@ -21,7 +21,7 @@ const Survey = () => {
                 className="bg-custom-gray1 shadow-lg appearance-none rounded w-full py-2 px-3 text-custom-gray3 focus:outline-none"
                 id="name"
                 type="text"
-                
+
               />
             </div>
             <div className="mb-6">
@@ -32,7 +32,7 @@ const Survey = () => {
                 className="bg-custom-gray1 shadow-lg appearance-none border rounded w-full py-2 px-3 text-custom-gray3 leading-tight focus:outline-none focus:shadow-outline"
                 id="email"
                 type="email"
-               
+
               />
             </div>
             <div className="mb-6">
@@ -43,7 +43,7 @@ const Survey = () => {
                 className="bg-custom-gray1 shadow-lg appearance-none rounded w-full py-2 px-3 text-custom-gray3 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 id="password"
                 type="password"
-                
+
               />
             </div>
 
@@ -72,9 +72,9 @@ const Survey = () => {
               className="block text-center text-custom-red text-xs mt-12"
               href='/login'>Já Tenho Conta!
             </Link>
-      </form>
-    </section>
-    </main></>
+          </form>
+        </section>
+      </main></>
   )
 };
 export default Survey;
