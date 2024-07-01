@@ -27,18 +27,18 @@ const PopupText = ({
   const combinedStyles = `${baseStyles} ${variantStyles[variant].backgroundColor}`;
 
   return (
-    <div className={combinedStyles}>
+    <div className={ combinedStyles }>
       <h1
         className="text-base"
-        style={{ color: variantStyles[variant].titleColor }}
+        style={ { color: variantStyles[variant].titleColor } }
       >
-        {title}
+        { title }
       </h1>
       <p
-        style={{ color: variantStyles[variant].textColor }}
+        style={ { color: variantStyles[variant].textColor } }
         className="text-xs"
       >
-        {text}
+        { text }
       </p>
       <div className="grid grid-cols-2 gap-[18px]">
         <Button variant="white">Iniciar Depois</Button>

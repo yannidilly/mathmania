@@ -29,19 +29,19 @@ const Popup2 = ({
   const combinedStyles = `${baseStyles} ${variantStyles[variant].backgroundColor}`;
 
   return (
-    <div className={combinedStyles}>
+    <div className={ combinedStyles }>
       <h1
         className="text-base"
-        style={{ color: variantStyles[variant].titleColor }}
+        style={ { color: variantStyles[variant].titleColor } }
       >
-        {title}
+        { title }
       </h1>
-      <Image className="mx-auto" src={icon} alt="Popup Icon" />
+      <Image className="mx-auto" src={ icon } alt="Popup Icon" />
       <p
-        style={{ color: variantStyles[variant].textColor }}
+        style={ { color: variantStyles[variant].textColor } }
         className="text-xs"
       >
-        {text}
+        { text }
       </p>
       <div className="grid grid-cols-2 gap-[18px]">
         <Button variant="white">Continuar</Button>

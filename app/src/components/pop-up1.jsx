@@ -27,20 +27,20 @@ const Popup1 = ({ variant = 'white', titleColor, textColor, text, title }) => {
   const combinedStyles = `${baseStyles} ${variantStyles[variant].backgroundColor}`;
 
   return (
-    <div className={combinedStyles}>
+    <div className={ combinedStyles }>
       <h1
         className="text-base"
-        style={{ color: variantStyles[variant].titleColor }}
+        style={ { color: variantStyles[variant].titleColor } }
       >
-        {title}
+        { title }
       </h1>
-      <Trophy size={73} color="#FFF" />
-      <Rating rating={ratingData.rating} />
+      <Trophy size={ 73 } color="#FFF" />
+      <Rating rating={ ratingData.rating } />
       <p
-        style={{ color: variantStyles[variant].textColor }}
+        style={ { color: variantStyles[variant].textColor } }
         className="text-xs"
       >
-        {text}
+        { text }
       </p>
       <div className="flex justify-center ">
         <Button variant="red" size="large" className="px-[58px] bg-red-200">

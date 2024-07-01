@@ -12,12 +12,12 @@ const PopupButton = ({ label, PopupComponent, popupProps }) => {
   return (
     <div className="flex justify-center items-center gap-2">
       <button
-        onClick={togglePopup}
+        onClick={ togglePopup }
         className="px-3 py-4 border text-white rounded max-h-[58px]"
       >
-        {label}
+        { label }
       </button>
-      {isVisible && <PopupComponent {...popupProps} onClose={togglePopup} />}
+      { isVisible && <PopupComponent { ...popupProps } onClose={ togglePopup } /> }
     </div>
   );
 };
