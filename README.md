@@ -43,6 +43,7 @@ npm run dev
       <li>fix => correção de um bug no projeto</li>
       <li>config => configuração de ferramenta no projeto</li>
       <li>break => mudança significativa do funcionamento da aplicação</li>
+      <li>comp => cria elemento componentizado</li>
     </ul>
 </details>
 
